@@ -1,0 +1,30 @@
+{
+  "name": "paramsValidator",
+  "version": "0.0.1",
+  "description": "Check your request params with mongoose schema or an array of required value, ...",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "validators",
+    "express",
+    "mongoose",
+    "schema",
+    "params"
+  ],
+  "author": {
+    "name": "Bnj",
+    "email": "benjamin.coenen@hotmail.com",
+    "url": "http://www.lapetitesoeur.fr"
+  },
+  "license": "ISC",
+  "dependencies": {
+    "assert": "^1.3.0",
+    "lodash": "^3.6.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://bitbucket.org/bnjjj/fieldsvalidator"
+  }
+}
