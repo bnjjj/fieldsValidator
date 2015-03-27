@@ -44,7 +44,7 @@ function signup(req, res) {
 	var error = paramsValidator.checkSchema(Users, req.body, ['hashed_password', 'salt']);
 
       if (error) {
-        return res.status(400).send(error.message);
+        return res.status(400).send(error);
       }
 
       ...
@@ -94,7 +94,7 @@ function signup(req, res) {
 	var error = paramsValidator.checkFieldsRequired(['password', 'email'],req.body);
 
       if (error) {
-        return res.status(400).send(error.message);
+        return res.status(400).send(error);
       }
 
         ...
@@ -102,4 +102,3 @@ function signup(req, res) {
         ....
 }
 ```
-
