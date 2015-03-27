@@ -116,4 +116,5 @@ function signup(req, res) {
 Feel free to make pull request
 
 Made by [Coenen Benjamin](https://twitter.com/BnJ25) with love
+
 See you on [Lapetitesoeur](http://www.lapetitesoeur.fr)
