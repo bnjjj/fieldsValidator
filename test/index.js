@@ -45,7 +45,6 @@ describe('+ mongoose file :', function() {
     });
     it('Return an error with a bad omission object', function() {
       result = mongooseUtils.checkSchema(config.UserModel, config.params[4], 'aaa');
-      console.log(result);
       expect(result).to.not.be.a('null');
       expect(result).to.equal('Omissions must be an array');
     });
