@@ -16,6 +16,7 @@ Here is an exemple of what you had before :
 ```
 #!javascript
 
+var User = mongoose.model('Users', UserSchema);
 function signup(req, res) {
 	if (!req.body.password) {
 		return res.status(400).send('Password is required');
@@ -42,7 +43,7 @@ And what you'll have with fieldsValidator :
 ```
 #!javascript
 
-mongoose.model('Users', UserSchema);
+var User = mongoose.model('Users', UserSchema);
 function signup(req, res) {
 	var error = fieldsValidator.checkSchema(Users, req.body, ['hashed_password', 'salt']);
 
@@ -66,7 +67,7 @@ Here is an exemple of what you had before :
 ```
 #!javascript
 
-mongoose.model('Users', UserSchema);
+var User = mongoose.model('Users', UserSchema);
 function signup(req, res) {
 	if (!req.body.password) {
 		return res.status(400).send('Password is required');
@@ -93,6 +94,7 @@ And what you'll have with fieldsValidator :
 ```
 #!javascript
 
+var User = mongoose.model('Users', UserSchema);
 function signup(req, res) {
 	var error = fieldsValidator.checkFieldsRequired(['password', 'email'],req.body);
 
