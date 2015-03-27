@@ -21,10 +21,16 @@
   "license": "ISC",
   "dependencies": {
     "assert": "^1.3.0",
-    "lodash": "^3.6.0"
+    "lodash": "^3.6.0",
+    "moment": "^2.9.0"
   },
   "repository": {
     "type": "git",
     "url": "https://bitbucket.org/bnjjj/fieldsvalidator"
+  },
+  "devDependencies": {
+    "mongoose": "3.8.21",
+    "chai": "^2.2.0",
+    "mocha": "^2.2.1"
   }
 }
