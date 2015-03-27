@@ -1,13 +1,16 @@
 # FieldsValidator
+---------
+FieldsValidator is useful to make **validation** of data with different sources like a **mongoose model**, an array of required fields, ...
+With this npm you can dramatically **reduce** your code and your replication code
 
-FieldsValidator is useful to make validation of data with different sources like a mongoose model, an array of required fields, ...
+#Examples
 
 ##With a mongoose model
-###function checkSchema(Model, fields, [omissions])
+###`function checkSchema(Model, fields, [omissions])`
 ####Arguments
-1. Model (Object): the mongoose model reference
-2. fields (Object): the fields you want to check and validate
-3. omissions (Array): values to omit in the schema of the Model
+1. `Model` (Object): the mongoose model reference
+2. `fields` (Object): the fields you want to check and validate
+3. `omissions` (Array): values to omit in the schema of the Model
 
 Here is an exemple of what you had before :
 ```
@@ -41,7 +44,7 @@ And what you'll have with fieldsValidator :
 
 mongoose.model('Users', UserSchema);
 function signup(req, res) {
-	var error = paramsValidator.checkSchema(Users, req.body, ['hashed_password', 'salt']);
+	var error = fieldsValidator.checkSchema(Users, req.body, ['hashed_password', 'salt']);
 
       if (error) {
         return res.status(400).send(error);
@@ -54,10 +57,10 @@ function signup(req, res) {
 ```
 
 ##With an array of custom required fields
-###function checkFieldsRequired(requiredFields, fields)
+###`function checkFieldsRequired(requiredFields, fields)`
 ####Arguments
-1. requiredFields (Array): the array which contained the custom required fields
-2. fields (Object): the fields you want to check and validate
+1. `requiredFields` (Array): the array which contained the custom required fields
+2. `fields` (Object): the fields you want to check and validate
 
 Here is an exemple of what you had before :
 ```
@@ -91,7 +94,7 @@ And what you'll have with fieldsValidator :
 #!javascript
 
 function signup(req, res) {
-	var error = paramsValidator.checkFieldsRequired(['password', 'email'],req.body);
+	var error = fieldsValidator.checkFieldsRequired(['password', 'email'],req.body);
 
       if (error) {
         return res.status(400).send(error);
@@ -102,3 +105,12 @@ function signup(req, res) {
         ....
 }
 ```
+
+#Roadmap
+
++ Make a function to validate fields with the configuration files of swagger-ui
+
+---------
+Feel free to make pull request
+
+Made by [Coenen Benjamin](https://twitter.com/BnJ25) with love
