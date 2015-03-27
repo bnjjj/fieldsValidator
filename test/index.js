@@ -1,8 +1,8 @@
+'use strict';
 var expect = require('chai').expect;
 var mongooseUtils = require('../lib/mongoose');
 var paramsUtils = require('../lib/params');
 var config = require('./config');
-var _ = require('lodash');
 var error = {};
 var result = null;
 
@@ -42,6 +42,12 @@ describe('+ mongoose file :', function() {
       error = 'Params is empty';
       expect(result).to.not.be.a('null');
       expect(result).to.equal(error);
+    });
+    it('Return an error with a bad omission object', function() {
+      result = mongooseUtils.checkSchema(config.UserModel, config.params[4], 'aaa');
+      console.log(result);
+      expect(result).to.not.be.a('null');
+      expect(result).to.equal('Omissions must be an array');
     });
   });
 

@@ -4,7 +4,7 @@
   "description": "Check your request params with mongoose schema or an array of required value, ...",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "mocha test"
   },
   "keywords": [
     "validators",
@@ -29,8 +29,12 @@
     "url": "https://bitbucket.org/bnjjj/fieldsvalidator"
   },
   "devDependencies": {
-    "mongoose": "3.8.21",
     "chai": "^2.2.0",
-    "mocha": "^2.2.1"
+    "gulp-ignore": "^1.2.1",
+    "gulp-jshint": "^1.9.4",
+    "gulp-load-plugins": "^0.9.0",
+    "mocha": "^2.2.1",
+    "mongoose": "3.8.21",
+    "gulp": "^3.8.11"
   }
 }
