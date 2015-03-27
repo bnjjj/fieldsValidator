@@ -5,7 +5,7 @@ With this npm you can dramatically **reduce** your code and your replication cod
 
 #Examples
 
-##With a mongoose model
+##+ With a mongoose model
 ###`function checkSchema(Model, fields, [omissions])`
 ####Arguments
 1. `Model` (Object): the mongoose model reference
@@ -57,7 +57,7 @@ function signup(req, res) {
 }
 ```
 
-##With an array of custom required fields
+##+ With an array of custom required fields
 ###`function checkFieldsRequired(requiredFields, fields)`
 ####Arguments
 1. `requiredFields` (Array): the array which contained the custom required fields
@@ -116,3 +116,4 @@ function signup(req, res) {
 Feel free to make pull request
 
 Made by [Coenen Benjamin](https://twitter.com/BnJ25) with love
+See you on [Lapetitesoeur](http://www.lapetitesoeur.fr)
