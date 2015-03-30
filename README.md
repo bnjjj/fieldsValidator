@@ -3,18 +3,17 @@
 FieldsValidator is useful to make **validation** of data with different sources like a **mongoose model**, an array of required fields, ...
 With this npm you can dramatically **reduce** your code and your replication code
 
-#Examples
+# Examples
 
-##+ With a mongoose model
-###`function checkSchema(Model, fields, [omissions])`
-####Arguments
+## + With a mongoose model
+### `function checkSchema(Model, fields, [omissions])`
+#### Arguments
 1. `Model` (Object): the mongoose model reference
 2. `fields` (Object): the fields you want to check and validate
 3. `omissions` (Array): values to omit in the schema of the Model
 
 Here is an exemple of what you had before :
-```
-#!javascript
+```javascript
 
 var User = mongoose.model('Users', UserSchema);
 function signup(req, res) {
@@ -40,8 +39,7 @@ function signup(req, res) {
 
 And what you'll have with fieldsValidator : 
 
-```
-#!javascript
+```javascript
 
 var User = mongoose.model('Users', UserSchema);
 function signup(req, res) {
@@ -57,16 +55,15 @@ function signup(req, res) {
 }
 ```
 
-##+ With the docs of your swagger-ui
+## + With the docs of your swagger-ui
 Use your docs to help your logic
-###`function checkSwagger(swaggerParameters, fields)`
-####Arguments
+### `function checkSwagger(swaggerParameters, fields)`
+#### Arguments
 1. `swaggerParameters` (Array): the array which contained the fields of your methods in your swagger spec files
 2. `fields` (Object): the fields you want to check and validate
 
 Here is an exemple of a swagger spec files :
-```
-#!javascript
+```javascript
 
 {
   paths: {
@@ -95,8 +92,7 @@ Here is an exemple of a swagger spec files :
 
 And what you'll have with fieldsValidator : 
 
-```
-#!javascript
+```javascript
 
 var User = mongoose.model('Users', UserSchema);
 function signup(req, res) {
@@ -113,15 +109,14 @@ function signup(req, res) {
 ```
 
 
-##+ With an array of custom required fields
-###`function checkFieldsRequired(requiredFields, fields)`
-####Arguments
+## + With an array of custom required fields
+### `function checkFieldsRequired(requiredFields, fields)`
+#### Arguments
 1. `requiredFields` (Array): the array which contained the custom required fields
 2. `fields` (Object): the fields you want to check and validate
 
 Here is an exemple of what you had before :
-```
-#!javascript
+```javascript
 
 var User = mongoose.model('Users', UserSchema);
 function signup(req, res) {
@@ -147,8 +142,7 @@ function signup(req, res) {
 
 And what you'll have with fieldsValidator : 
 
-```
-#!javascript
+```javascript
 
 var User = mongoose.model('Users', UserSchema);
 function signup(req, res) {
@@ -164,7 +158,7 @@ function signup(req, res) {
 }
 ```
 
-#Roadmap
+# Roadmap
 
 + Make a function to fetch automatically the configs of your swagger
 
