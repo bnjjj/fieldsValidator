@@ -49,45 +49,123 @@ var params = [{
   firstname: 'test',
   lastName: 'coucou',
   password: 'haha'
-},
-{
+}, {
   firstname: 5,
   email: 'test'
-},
-{
+}, {
   firstname: 'bnj',
   email: 'test',
   password: 'test'
-},
-{
+}, {
   firstname: 'bnj',
   email: 'test',
   password: 'test',
   birthdate: 'loool'
-},
-{
+}, {
   firstname: 'bnj',
   email: 'test',
   password: 'test',
   birthdate: new Date().toString()
-},
-{
+}, {
   firstname: 'bnj',
   email: 'test',
   password: 'test',
   birthdate: new Date()
-},
-{
+}, {
   firstname: 'bnj',
   email: 'test',
   password: 'test',
   color: 'lool'
+}, {
+  firstname: 'bnj',
+  email: 56,
+  password: 'test',
+  color: 'lool'
 }];
+
+
+var swaggerObj = {
+  paths: {
+    '/login': {
+      post: {
+        tags: ['auth'],
+        summary: 'Login',
+        operationId: 'login',
+        parameters: [{ in : 'formData',
+          name: 'email',
+          description: 'email to login',
+          required: true,
+          type: 'string'
+        }, { in : 'formData',
+          name: 'password',
+          description: 'password to login',
+          required: true,
+          type: 'string'
+        }]
+      }
+    },
+    '/signup': {
+      post: {
+        tags: ['auth'],
+        summary: 'Signup',
+        operationId: 'signup',
+        parameters: [{ in : 'formData',
+          name: 'email',
+          description: 'email to login',
+          required: true,
+          type: 'string'
+        }, { in : 'formData',
+          name: 'password',
+          description: 'password to login',
+          required: true,
+          type: 'string'
+        }, { in : 'formData',
+          name: 'firstname',
+          description: 'firstname to signup',
+          required: false,
+          type: 'string'
+        }, { in : 'formData',
+          name: 'birthdate',
+          description: 'birthdate',
+          required: false,
+          type: 'date'
+        }],
+      }
+    }
+  },
+
+  definitions: {
+    User: {
+      properties: {
+        id: {
+          type: 'integer'
+        },
+        username: {
+          type: 'string'
+        },
+        firstName: {
+          type: 'string'
+        },
+        lastName: {
+          type: 'string'
+        },
+        email: {
+          type: 'string'
+        },
+        password: {
+          type: 'string'
+        }
+      }
+    }
+  }
+};
+
 
 var requiredFields = ['firstname', 'password', 'color'];
 
 module.exports = {
   UserModel: mongoose.model('Users', UserSchema),
   params: params,
-  requiredFields: requiredFields
+  requiredFields: requiredFields,
+  swaggerObj: swaggerObj
 };
