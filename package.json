@@ -1,7 +1,7 @@
 {
   "name": "paramsValidator",
-  "version": "0.0.1",
-  "description": "Check your request params with mongoose schema or an array of required value, ...",
+  "version": "0.1.0",
+  "description": "FieldsValidator is useful to make validation of data with different sources like a mongoose model, an array of required fields, your swagger docs, ... With this npm you can dramatically reduce your code and your replication code. Use your docs to improve your logic",
   "main": "index.js",
   "scripts": {
     "test": "mocha test"
@@ -14,7 +14,7 @@
     "params"
   ],
   "author": {
-    "name": "Bnj",
+    "name": "bnjjj",
     "email": "benjamin.coenen@hotmail.com",
     "url": "http://www.lapetitesoeur.fr"
   },
@@ -26,7 +26,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://bitbucket.org/bnjjj/fieldsvalidator"
+    "url": "https://github.com/bnjjj/fieldsValidator.git"
   },
   "devDependencies": {
     "chai": "^2.2.0",
