@@ -57,6 +57,62 @@ function signup(req, res) {
 }
 ```
 
+##+ With the docs of your swagger-ui
+Use your docs to help your logic
+###`function checkSwagger(swaggerParameters, fields)`
+####Arguments
+1. `swaggerParameters` (Array): the array which contained the fields of your methods in your swagger spec files
+2. `fields` (Object): the fields you want to check and validate
+
+Here is an exemple of a swagger spec files :
+```
+#!javascript
+
+{
+  paths: {
+    '/login': {
+      post: {
+        tags: ['auth'],
+        summary: 'Login',
+        operationId: 'login',
+        parameters: [{ in : 'formData',
+          name: 'email',
+          description: 'email to login',
+          required: true,
+          type: 'string'
+        }, { in : 'formData',
+          name: 'password',
+          description: 'password to login',
+          required: true,
+          type: 'string'
+        }]
+      }
+    }
+}
+}
+
+```
+
+And what you'll have with fieldsValidator : 
+
+```
+#!javascript
+
+var User = mongoose.model('Users', UserSchema);
+function signup(req, res) {
+	var error = fieldsValidator.checkSwagger(swaggerSpecs['/login'].post.parameters,req.body);
+
+      if (error) {
+        return res.status(400).send(error);
+      }
+
+        ...
+        User.save();
+        ....
+}
+```
+
+
 ##+ With an array of custom required fields
 ###`function checkFieldsRequired(requiredFields, fields)`
 ####Arguments
@@ -110,7 +166,7 @@ function signup(req, res) {
 
 #Roadmap
 
-+ Make a function to validate fields with the configuration files of swagger-ui
++ Make a function to fetch automatically the configs of your swagger
 
 ---------
 Feel free to make pull request
