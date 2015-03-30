@@ -2,7 +2,6 @@
 var expect = require('chai').expect;
 var paramsUtils = require('../lib/params');
 var config = require('./config');
-var error = {};
 var result = null;
 
 module.exports = function() {
@@ -19,6 +18,7 @@ module.exports = function() {
         expect(result).to.equal('Param(s) password,color are required');
       });
     });
+
 
     describe('- Don\'t return an error :', function() {
       it('With right parameters', function() {

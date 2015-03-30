@@ -25,7 +25,7 @@ module.exports = function() {
         expect(result).to.not.be.a('null');
         expect(result).to.equal(error);
       });
-
+      
       it('Return an error of email type', function() {
         result = swaggerUtils.checkSwagger(loginTest, config.params[7]);
         error = 'Param email must be string';
