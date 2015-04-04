@@ -1,6 +1,6 @@
 {
   "name": "fieldsValidator",
-  "version": "0.1.2",
+  "version": "0.1.3",
   "description": "FieldsValidator is useful to make validation of data with different sources like a mongoose model, an array of required fields, your swagger docs, ... With this npm you can dramatically reduce your code and your replication code",
   "main": "index.js",
   "scripts": {
@@ -35,6 +35,7 @@
     "gulp-jshint": "1.9.4",
     "gulp-load-plugins": "0.9.0",
     "gulp-mocha": "2.0.1",
+    "gulp-notify": "^2.2.0",
     "mocha": "2.2.1",
     "mongoose": "3.8.21"
   }

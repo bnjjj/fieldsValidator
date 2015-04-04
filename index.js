@@ -4,7 +4,7 @@
 //Made with love
 
 module.exports = {
-  checkSchema: require('./lib/mongoose').checkSchema,
-  checkFieldsRequired: require('./lib/params').checkFieldsRequired,
-  checkSwagger: require('./lib/swagger').checkSwagger
+  isValidWithMongo: require('./lib/mongoose').isValidWithMongo,
+  isValidWithCustoms: require('./lib/params').isValidWithCustoms,
+  isValidWithSwagger: require('./lib/swagger').isValidWithSwagger
 };

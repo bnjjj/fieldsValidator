@@ -8,12 +8,12 @@ module.exports = function() {
   describe('+ Params file :', function() {
     describe('- Return an error :', function() {
       it('Return an error with an object without color', function() {
-        result = paramsUtils.checkFieldsRequired(config.requiredFields, config.params[3]);
+        result = paramsUtils.isValidWithCustoms(config.requiredFields, config.params[3]);
         expect(result).to.not.be.a('null');
         expect(result).to.equal('Param(s) color is required');
       });
       it('Return an error with an object without color and password', function() {
-        result = paramsUtils.checkFieldsRequired(config.requiredFields, config.params[1]);
+        result = paramsUtils.isValidWithCustoms(config.requiredFields, config.params[1]);
         expect(result).to.not.be.a('null');
         expect(result).to.equal('Param(s) password,color are required');
       });
@@ -22,7 +22,7 @@ module.exports = function() {
 
     describe('- Don\'t return an error :', function() {
       it('With right parameters', function() {
-        result = paramsUtils.checkFieldsRequired(config.requiredFields, config.params[6]);
+        result = paramsUtils.isValidWithCustoms(config.requiredFields, config.params[6]);
         expect(result).to.be.a('null');
       });
     });
