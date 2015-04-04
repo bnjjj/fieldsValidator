@@ -6,7 +6,7 @@ With this npm you can dramatically **reduce** your code and your replication cod
 # Examples
 
 ## + With a mongoose model
-### `function checkSchema(Model, fields, [omissions])`
+### `function isValidWithMongo(Model, fields, [omissions])`
 #### Arguments
 1. `Model` (Object): the mongoose model reference
 2. `fields` (Object): the fields you want to check and validate
@@ -57,7 +57,7 @@ function signup(req, res) {
 
 ## + With the docs of your swagger-ui
 Use your docs to help your logic
-### `function checkSwagger(swaggerParameters, fields)`
+### `function isValidWithSwagger(swaggerParameters, fields)`
 #### Arguments
 1. `swaggerParameters` (Array): the array which contained the fields of your methods in your swagger spec files
 2. `fields` (Object): the fields you want to check and validate
@@ -110,7 +110,7 @@ function signup(req, res) {
 
 
 ## + With an array of custom required fields
-### `function checkFieldsRequired(requiredFields, fields)`
+### `function isValidWithCustoms(requiredFields, fields)`
 #### Arguments
 1. `requiredFields` (Array): the array which contained the custom required fields
 2. `fields` (Object): the fields you want to check and validate
