@@ -1,4 +1,4 @@
-[![Coverage Status](https://coveralls.io/repos/bnjjj/fieldsValidator/badge.svg)](https://coveralls.io/r/bnjjj/fieldsValidator)[![Build Status](https://travis-ci.org/bnjjj/fieldsValidator.svg?branch=master)](https://travis-ci.org/bnjjj/fieldsValidator)
+[![Coverage Status](https://coveralls.io/repos/bnjjj/fieldsValidator/badge.svg?branch=master)](https://coveralls.io/r/bnjjj/fieldsValidator?branch=master) [![Build Status](https://travis-ci.org/bnjjj/fieldsValidator.svg?branch=master)](https://travis-ci.org/bnjjj/fieldsValidator)
 # FieldsValidator
 ---------
 FieldsValidator is useful to make **validation** of data with different sources like a **mongoose model**, an array of required fields, ...
