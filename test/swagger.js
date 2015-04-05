@@ -9,6 +9,7 @@ var result = null;
 module.exports = function() {
   var loginTest = utils.getSwaggerParams(config.swaggerObj, '/login', 'post');
   var signupTest = utils.getSwaggerParams(config.swaggerObj, '/signup', 'post');
+  var badTest = utils.getSwaggerParams(config.badSwaggerObj, '/login', 'post');
 
   describe('+ swagger file :', function() {
     // it('Return an assert error', function(done) {
@@ -40,12 +41,27 @@ module.exports = function() {
         expect(result).to.equal(error);
       });
 
+      it('Return an error with a bad swagger Object', function() {
+        result = swaggerUtils.isValidWithSwagger(badTest, config.params[3]);
+        error = 'Bad parameter type email';
+        expect(result).to.not.be.a('null');
+        expect(result).to.equal(error);
+      });
+
       it('Return an error with an empty params array', function() {
-        result = swaggerUtils.isValidWithSwagger(config.UserModel, {});
+        result = swaggerUtils.isValidWithSwagger(loginTest, {});
         error = 'Params is empty';
         expect(result).to.not.be.a('null');
         expect(result).to.equal(error);
       });
+
+      it('Return an error with an empty swagger Object', function() {
+        result = swaggerUtils.isValidWithSwagger({}, config.params[3]);
+        error = 'swaggerParams is empty';
+        expect(result).to.not.be.a('null');
+        expect(result).to.equal(error);
+      });
+
     });
 
     describe('- Return an null object :', function() {

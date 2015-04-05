@@ -40,6 +40,15 @@ var UserSchema = new Schema({
   salt: {
     type: String,
     default: ''
+  },
+  colorType: {
+    type: Number
+  },
+  public: {
+    type: Boolean
+  },
+  friends: {
+    type: Array
   }
 }, {
   strict: false
@@ -81,6 +90,24 @@ var params = [{
   email: 56,
   password: 'test',
   color: 'lool'
+},
+{
+  firstname: 'bnj',
+  email: 'test',
+  password: 'test',
+  colorType: 'lool'
+},
+{
+  firstname: 'bnj',
+  email: 'test',
+  password: 'test',
+  public: []
+},
+{
+  firstname: 'bnj',
+  email: 'test',
+  password: 'test',
+  friends: 'coucou'
 }];
 
 
@@ -160,6 +187,28 @@ var swaggerObj = {
   }
 };
 
+var badSwaggerObj = {
+  paths: {
+    '/login': {
+      post: {
+        tags: ['auth'],
+        summary: 'Login',
+        operationId: 'login',
+        parameters: [{ in : 'formData',
+          name: 'email',
+          description: 'email to login',
+          required: true,
+          type: 'loool'
+        }, { in : 'formData',
+          name: 'password',
+          description: 'password to login',
+          required: true,
+          type: 'string'
+        }]
+      }
+    }
+  }
+};
 
 var requiredFields = ['firstname', 'password', 'color'];
 
@@ -167,5 +216,6 @@ module.exports = {
   UserModel: mongoose.model('Users', UserSchema),
   params: params,
   requiredFields: requiredFields,
-  swaggerObj: swaggerObj
+  swaggerObj: swaggerObj,
+  badSwaggerObj: badSwaggerObj
 };

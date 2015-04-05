@@ -37,12 +37,34 @@ module.exports = function() {
 				expect(result).to.equal(error);
 			});
 
+			it('Return an error about number type', function() {
+				result = mongooseUtils.isValidWithMongo(config.UserModel, config.params[8]);
+				error = 'Param colorType must be a number';
+				expect(result).to.not.be.a('null');
+				expect(result).to.equal(error);
+			});
+
+			it('Return an error about boolean type', function() {
+				result = mongooseUtils.isValidWithMongo(config.UserModel, config.params[9]);
+				error = 'Param public must be a boolean';
+				expect(result).to.not.be.a('null');
+				expect(result).to.equal(error);
+			});
+
+			it('Return an error about array type', function() {
+				result = mongooseUtils.isValidWithMongo(config.UserModel, config.params[10]);
+				error = 'Param friends must be an array';
+				expect(result).to.not.be.a('null');
+				expect(result).to.equal(error);
+			});
+
 			it('Return an error with an empty params array', function() {
 				result = mongooseUtils.isValidWithMongo(config.UserModel, {});
 				error = 'Params is empty';
 				expect(result).to.not.be.a('null');
 				expect(result).to.equal(error);
 			});
+
 			it('Return an error with a bad omission object', function() {
 				result = mongooseUtils.isValidWithMongo(config.UserModel, config.params[4], 'aaa');
 				expect(result).to.not.be.a('null');
