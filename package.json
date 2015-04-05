@@ -4,7 +4,7 @@
   "description": "FieldsValidator is useful to make validation of data with different sources like a mongoose model, an array of required fields, your swagger docs, ... With this npm you can dramatically reduce your code and your replication code",
   "main": "index.js",
   "scripts": {
-    "test": "mocha --require blanket  --reporter mocha-lcov-reporter test"
+    "test": "export NODE_ENV=test && mocha test && mocha --require blanket  --reporter mocha-lcov-reporter test > lcovReport && cat lcovReport | ./node_modules/coveralls/bin/coveralls.js"
   },
   "keywords": [
     "validators",
