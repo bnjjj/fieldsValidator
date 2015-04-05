@@ -65,6 +65,13 @@ module.exports = function() {
 				expect(result).to.equal(error);
 			});
 
+			it('Return an error with an empty model', function() {
+				result = mongooseUtils.isValidWithMongo(null, config.params[10]);
+				error = 'Model is undefined';
+				expect(result).to.not.be.a('null');
+				expect(result).to.equal(error);
+			});
+
 			it('Return an error with a bad omission object', function() {
 				result = mongooseUtils.isValidWithMongo(config.UserModel, config.params[4], 'aaa');
 				expect(result).to.not.be.a('null');
