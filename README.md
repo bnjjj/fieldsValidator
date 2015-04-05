@@ -1,3 +1,4 @@
+[![Coverage Status](https://coveralls.io/repos/bnjjj/fieldsValidator/badge.svg)](https://coveralls.io/r/bnjjj/fieldsValidator)
 # FieldsValidator
 ---------
 FieldsValidator is useful to make **validation** of data with different sources like a **mongoose model**, an array of required fields, ...

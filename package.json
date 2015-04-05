@@ -4,7 +4,7 @@
   "description": "FieldsValidator is useful to make validation of data with different sources like a mongoose model, an array of required fields, your swagger docs, ... With this npm you can dramatically reduce your code and your replication code",
   "main": "index.js",
   "scripts": {
-    "test": "mocha test"
+    "test": "mocha --require blanket  --reporter mocha-lcov-reporter test | ./node_modules/coveralls/bin/coveralls.js"
   },
   "keywords": [
     "validators",
@@ -18,10 +18,23 @@
     "email": "benjamin.coenen@hotmail.com",
     "url": "http://www.lapetitesoeur.fr"
   },
+  "config": {
+    "blanket": {
+      "pattern": [
+        "lib"
+      ],
+      "data-cover-never": [
+        "node_modules",
+        "tests"
+      ]
+    }
+  },
   "license": "ISC",
   "dependencies": {
     "assert": "1.3.0",
+    "coveralls": "^2.11.2",
     "lodash": "3.6.0",
+    "mocha-lcov-reporter": "0.0.2",
     "moment": "2.9.0"
   },
   "repository": {
@@ -29,7 +42,9 @@
     "url": "https://github.com/bnjjj/fieldsValidator.git"
   },
   "devDependencies": {
+    "blanket": "^1.1.6",
     "chai": "^2.2.0",
+    "coveralls": "^2.11.2",
     "gulp": "3.8.11",
     "gulp-ignore": "1.2.1",
     "gulp-jshint": "1.9.4",
