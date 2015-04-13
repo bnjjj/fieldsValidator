@@ -44,7 +44,7 @@ And what you'll have with fieldsValidator :
 
 var User = mongoose.model('Users', UserSchema);
 function signup(req, res) {
-	var error = fieldsValidator.checkSchema(Users, req.body, ['hashed_password', 'salt']);
+	var error = fieldsValidator.isValidWithMongo(Users, req.body, ['hashed_password', 'salt']);
 
       if (error) {
         return res.status(400).send(error);
@@ -97,7 +97,7 @@ And what you'll have with fieldsValidator :
 
 var User = mongoose.model('Users', UserSchema);
 function signup(req, res) {
-	var error = fieldsValidator.checkSwagger(swaggerSpecs['/login'].post.parameters,req.body);
+	var error = fieldsValidator.isValidWithSwagger(swaggerSpecs['/login'].post.parameters,req.body);
 
       if (error) {
         return res.status(400).send(error);
