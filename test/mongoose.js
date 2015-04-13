@@ -44,13 +44,6 @@ module.exports = function() {
 				expect(result).to.equal(error);
 			});
 
-			it('Return an error about boolean type', function() {
-				result = mongooseUtils.isValidWithMongo(config.UserModel, config.params[9]);
-				error = 'Param public must be a boolean';
-				expect(result).to.not.be.a('null');
-				expect(result).to.equal(error);
-			});
-
 			it('Return an error about array type', function() {
 				result = mongooseUtils.isValidWithMongo(config.UserModel, config.params[10]);
 				error = 'Param friends must be an array';
@@ -79,18 +72,24 @@ module.exports = function() {
 			});
 		});
 
-		describe('- Return an null object :', function() {
+		describe('- Return a null object :', function() {
 			it('Return an null object with a string date', function() {
 				result = mongooseUtils.isValidWithMongo(config.UserModel, config.params[4]);
 				expect(result).to.be.a('null');
 			});
 
-			it('Return an null object with a js date', function() {
+
+			it('Return a null object about boolean type', function() {
+				result = mongooseUtils.isValidWithMongo(config.UserModel, config.params[9]);
+				expect(result).to.be.a('null');
+			});
+
+			it('Return a null object with a js date', function() {
 				result = mongooseUtils.isValidWithMongo(config.UserModel, config.params[5]);
 				expect(result).to.be.a('null');
 			});
 
-			it('Return an null object', function() {
+			it('Return a null object', function() {
 				result = mongooseUtils.isValidWithMongo(config.UserModel, config.params[2]);
 				expect(result).to.be.a('null');
 			});
