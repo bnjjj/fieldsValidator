@@ -12,7 +12,10 @@ gulp.task('jshint', function()
 
 gulp.task('mocha', function () {
   gulp.src('./test', {read: false})
-    .pipe($.mocha());
+    .pipe($.mocha())  
+    .on('error', function(err) {
+    	return $.notify().write(err);
+    });
 });
 
 gulp.task('default', ['jshint'], function() {
