@@ -108,6 +108,18 @@ var params = [{
   email: 'test',
   password: 'test',
   friends: 'coucou'
+},
+{
+  firstname: 'bnj',
+  email: 'test',
+  password: 'test',
+  age: 'coucou'
+},
+{
+  firstname: 'bnj',
+  email: 'test',
+  password: 'test',
+  age: '89'
 }];
 
 
@@ -156,32 +168,12 @@ var swaggerObj = {
           description: 'birthdate',
           required: false,
           type: 'date'
-        }],
-      }
-    }
-  },
-
-  definitions: {
-    User: {
-      properties: {
-        id: {
+        }, { in : 'formData',
+          name: 'age',
+          description: 'birthdate',
+          required: false,
           type: 'integer'
-        },
-        username: {
-          type: 'string'
-        },
-        firstName: {
-          type: 'string'
-        },
-        lastName: {
-          type: 'string'
-        },
-        email: {
-          type: 'string'
-        },
-        password: {
-          type: 'string'
-        }
+        }],
       }
     }
   }

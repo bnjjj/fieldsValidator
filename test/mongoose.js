@@ -40,6 +40,8 @@ module.exports = function() {
 			it('Return an error about number type', function() {
 				result = mongooseUtils.isValidWithMongo(config.UserModel, config.params[8]);
 				error = 'Param colorType must be a number';
+				console.log(config.params[8]);
+				console.log(result);
 				expect(result).to.not.be.a('null');
 				expect(result).to.equal(error);
 			});

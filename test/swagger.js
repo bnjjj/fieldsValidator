@@ -41,6 +41,13 @@ module.exports = function() {
         expect(result).to.equal(error);
       });
 
+      it('Return an error about number', function() {
+        result = swaggerUtils.isValidWithSwagger(signupTest, config.params[11]);
+        error = 'Param age must be integer';
+        expect(result).to.not.be.a('null');
+        expect(result).to.equal(error);
+      });
+
       it('Return an error with a bad swagger Object', function() {
         result = swaggerUtils.isValidWithSwagger(badTest, config.params[3]);
         error = 'Bad parameter type email';
@@ -70,13 +77,18 @@ module.exports = function() {
       //   expect(result).to.be.a('null');
       // });
 
-      it('Return an error about date', function() {
+      it('with a date', function() {
         result = swaggerUtils.isValidWithSwagger(loginTest, config.params[3]);
         error = 'Param birthdate must be date';
         expect(result).to.be.a('null');
       });
 
-      it('Return an null object with a js date', function() {
+      it('with a good number', function() {
+        result = swaggerUtils.isValidWithSwagger(loginTest, config.params[12]);
+        expect(result).to.be.a('null');
+      });
+
+      it('with a js date', function() {
         result = swaggerUtils.isValidWithSwagger(signupTest, config.params[5]);
         expect(result).to.be.a('null');
       });
