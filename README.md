@@ -4,6 +4,10 @@
 FieldsValidator is useful to make **validation** of data with different sources like a **mongoose model**, an array of required fields, ...
 With this npm you can dramatically **reduce** your code and your replication code
 
+```
+$ npm install fieldsValidator
+```
+
 # Examples
 
 ## + With a mongoose model
