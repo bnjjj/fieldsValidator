@@ -40,8 +40,6 @@ module.exports = function() {
 			it('Return an error about number type', function() {
 				result = mongooseUtils.isValidWithMongo(config.UserModel, config.params[8]);
 				error = 'Param colorType must be a number';
-				console.log(config.params[8]);
-				console.log(result);
 				expect(result).to.not.be.a('null');
 				expect(result).to.equal(error);
 			});
@@ -68,7 +66,7 @@ module.exports = function() {
 			});
 
 			it('Return an error with a bad omission object', function() {
-				result = mongooseUtils.isValidWithMongo(config.UserModel, config.params[4], 'aaa');
+				result = mongooseUtils.isValidWithMongo(config.UserModel, config.params[4], false, 'aaa');
 				expect(result).to.not.be.a('null');
 				expect(result).to.equal('Omissions must be an array');
 			});
