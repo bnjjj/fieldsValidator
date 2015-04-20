@@ -11,11 +11,12 @@ $ npm install fieldsValidator
 # Examples
 
 ## + With a mongoose model
-### `function isValidWithMongo(Model, fields, [omissions])`
+### `function isValidWithMongo(Model, fields, [omitRequired, omissions])`
 #### Arguments
 1. `Model` (Object): the mongoose model reference
 2. `fields` (Object): the fields you want to check and validate
-3. `omissions` (Array): values to omit in the schema of the Model
+3. `omitRequired`(Boolean): if you set this one, it will ignore the required fields (for a put for example)
+4. `omissions` (Array): values to omit in the schema of the Model
 
 Here is an exemple of what you had before :
 ```javascript
@@ -48,7 +49,7 @@ And what you'll have with fieldsValidator :
 
 var User = mongoose.model('Users', UserSchema);
 function signup(req, res) {
-	var error = fieldsValidator.isValidWithMongo(Users, req.body, ['hashed_password', 'salt']);
+	var error = fieldsValidator.isValidWithMongo(Users, req.body, false, ['hashed_password', 'salt']);
 
       if (error) {
         return res.status(400).send(error);
@@ -62,10 +63,11 @@ function signup(req, res) {
 
 ## + With the docs of your swagger-ui
 Use your docs to help your logic
-### `function isValidWithSwagger(swaggerParameters, fields)`
+### `function isValidWithSwagger(swaggerParameters, fields, [omitRequired])`
 #### Arguments
 1. `swaggerParameters` (Array): the array which contained the fields of your methods in your swagger spec files
 2. `fields` (Object): the fields you want to check and validate
+3. `omitRequired`(Boolean): if you set this one, it will ignore the required fields (for a put for example)
 
 Here is an exemple of a swagger spec files :
 ```javascript
