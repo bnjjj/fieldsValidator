@@ -56,7 +56,7 @@ var UserSchema = new Schema({
 
 var params = [{
   firstname: 'test',
-  lastName: 'coucou',
+  lastname: 'coucou',
   password: 'haha'
 }, {
   firstname: 5,
