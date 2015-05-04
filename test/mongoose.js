@@ -108,6 +108,13 @@ module.exports = function () {
           'hashed_password','salt','colorType']);
       });
 
+      it('Should return list of values in a mongoose schema and omission', function () {
+        result = mongooseUtils.getValuesInSchema(config.UserModel, null, 'public');
+        expect(result).to.not.be.a('null');
+        expect(result).to.have.members(['lastname','firstname','email','role','testNumber','testArray','birthdate',
+          'hashed_password','salt','colorType', 'friends']);
+      });
+
       it('Should return list of values in a mongoose schema and omissions', function () {
         result = mongooseUtils.getValuesInSchema(config.UserModel, 'test', ['public','friends']);
         expect(result).to.not.be.a('null');

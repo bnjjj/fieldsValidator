@@ -61,6 +61,60 @@ function signup(req, res) {
 }
 ```
 
+### `function getValuesInSchema(model, [additions, omissions])`
+#### Arguments
+1. `Model` (Object): the mongoose model reference
+2. `additions` (Array | String): the customs fields you want to get in addition in your list
+3. `omissions` (Array): values to omit in the schema of the Model
+
+#### Returns
+(Array): values in your mongoose schema (Attention: _id & __v is omited by default)
+
+Example:
+```javascript
+
+var User = mongoose.model('Users', UserSchema);
+fieldsValidator.getValuesInSchema(User);
+// -> ['lastname', 'firstname', ... ]
+```
+
+### `function createWithMongo(model, body, additions, omissions)`
+#### Arguments
+1. `Model` (Object): the mongoose model reference
+2. `body` (Object): the object you want to fetch information with mongoose model arguments
+3. `additions` (Array | String): the customs fields you want to get in addition in your object body
+4. `omissions` (Array): values to omit in the schema of the Model
+
+#### Returns
+(Object): Object formated (Attention: _id & __v is omited by default)
+
+Example:
+
+Here is an exemple of what you had before :
+```javascript
+
+var User = mongoose.model('Users', UserSchema);
+function signup(req, res) {
+  var newUser = {
+    firstname: req.body.firstname,
+    lastname: req.body.lastname,
+    password: req.body.password
+  };
+}
+```
+
+And what you'll have with fieldsValidator : 
+
+```javascript
+
+var User = mongoose.model('Users', UserSchema);
+function signup(req, res) {
+  var newUser = fieldsValidator.createWithMongo(User, req.body, 'password');
+}
+```
+
+The main asset in this case is you don't have to update all of your code when you're updating your mongoose schema
+
 ## + With the docs of your swagger-ui
 Use your docs to help your logic
 ### `function isValidWithSwagger(swaggerParameters, fields, [omitRequired])`
