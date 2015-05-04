@@ -78,7 +78,7 @@ fieldsValidator.getValuesInSchema(User);
 // -> ['lastname', 'firstname', ... ]
 ```
 
-### `function createWithMongo(model, body, additions, omissions)`
+### `function createWithMongo(model, body, [additions, omissions])`
 #### Arguments
 1. `Model` (Object): the mongoose model reference
 2. `body` (Object): the object you want to fetch information with mongoose model arguments
