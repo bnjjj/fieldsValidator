@@ -224,7 +224,7 @@ function signup(req, res) {
 + Make a function to fetch automatically the configs of your swagger
 
 ---------
-Feel free to make pull request
+Feel free to contribute
 
 Made by [Coenen Benjamin](https://twitter.com/BnJ25) with love
 
