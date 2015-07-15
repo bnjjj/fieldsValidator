@@ -70,17 +70,19 @@ module.exports = function () {
 				expect(result).to.not.be.a('null');
 				expect(result).to.equal('Omissions must be an array');
 			});
+
+
+			it('Return a null object about boolean type', function () {
+				result = mongooseUtils.isValidWithMongo(config.UserModel, config.params[9]);
+				expect(result).to.not.be.a('null');
+				expect(result).to.equal('Param public must be a boolean');
+			});
+
 		});
 
 		describe('- Success :', function () {
 			it('Return an null object with a string date', function () {
 				result = mongooseUtils.isValidWithMongo(config.UserModel, config.params[4]);
-				expect(result).to.be.a('null');
-			});
-
-
-			it('Return a null object about boolean type', function () {
-				result = mongooseUtils.isValidWithMongo(config.UserModel, config.params[9]);
 				expect(result).to.be.a('null');
 			});
 
